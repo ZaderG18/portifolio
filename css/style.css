@@ -1,0 +1,836 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+body {
+  background-color: rgb(0, 32, 36);
+  height: 100vh;
+  width: auto;
+  color: aliceblue;
+}
+
+header {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  height: 10%;
+  width: 100%;
+  position: fixed;
+  box-shadow: 0 0 0 1px rgb(2, 186, 214);
+  padding: 20px 10%;
+  align-items: center;
+  z-index: 100;
+}
+
+header .logo {
+  position: relative;
+  font-size: 25px;
+  color: aliceblue;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: default;
+  opacity: 0;
+  animation: slideRight 1s ease forwards;
+}
+
+header nav a {
+  border: solid 2px rgb(2, 186, 214);
+  display: inline-block;
+  font-weight: 500;
+  margin-left: 35px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 25px;
+  padding: 10px;
+  margin: 5px;
+  transition: 0.5s;
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  opacity: 0;
+  animation: slideTop 0.5s ease forwards;
+  animation-delay: calc(0.2s * var(--i));
+}
+
+header nav a:hover {
+  background-color: rgb(2, 186, 214);
+  border-radius: 0 20px;
+  margin: 10px;
+  color: black;
+}
+
+.container1 {
+  display: flex;
+  height: 100vh;
+  color: aliceblue;
+  background-image: url(/image/fundo.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: scroll;
+  align-items: center;
+  justify-content: space-between;
+  padding: 70 10% 0;
+  position: relative;
+}
+
+.container1 .fundo {
+  background-color: rgba(0, 0, 0, 0.692);
+  width: 100%;
+}
+
+.container1 .fundo .fundo-escuro {
+  max-width: 600px;
+  margin: 0 20px;
+  width: 100%;
+}
+
+.fundo-escuro h4 {
+  font-size: 32px;
+  font-weight: 700;
+  opacity: 0;
+  animation: slideBottom 1s ease forwards;
+  animation-delay: 0.7s;
+}
+
+.fundo-escuro h1 {
+  font-size: 50px;
+  font-weight: 700;
+  margin: -3px 0;
+  opacity: 0;
+  animation: slideRight 1s ease forwards;
+  animation-delay: 1s;
+}
+
+.fundo-escuro img {
+  width: 40%;
+  border: solid 5px rgb(2, 186, 214);
+  border-radius: 50%;
+  align-items: center;
+}
+
+.fundo-escuro p {
+  font-size: 20px;
+  opacity: 0;
+  animation: slideLeft 1s ease forwards;
+  animation-delay: 1s;
+}
+
+.home-sci a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: solid 2px rgb(2, 186, 214);
+  border-radius: 50%;
+  margin: 30px 15px 30px 0;
+  text-decoration: none;
+  color: rgb(2, 186, 214);
+  font-size: 20px;
+  transition: 0.5s ease;
+  opacity: 0;
+  animation: slideLeft 1s ease forwards;
+  animation-delay: calc(0.2s * var(--i));
+}
+
+.home-sci a:hover {
+  background: rgb(2, 186, 214);
+  color: black;
+  box-shadow: 0 0 20px rgb(2, 186, 214);
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: rgb(2, 186, 214);
+  color: black;
+  font-size: 20px;
+  border-radius: 40px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0;
+  animation: slideTop 0.5s ease forwards;
+  animation-delay: 2s;
+  box-shadow: 0 0 5px rgb(2, 186, 214), 0 0 25px rgb(2, 186, 214);
+}
+
+.btn:hover {
+  box-shadow: 0 0 5px rgb(2, 186, 214), 0 0 25px rgb(2, 186, 214), 0 0 50px rgb(2, 186, 214), 0 0 100px rgb(2, 186, 214);
+}
+
+.texto {
+  color: rgb(2, 186, 214);
+}
+
+.fundo-escuro h4:nth-last-of-type(2) {
+  margin-bottom: 30px;
+  animation: slideTop 1s ease forwards;
+  animation-delay: 0.7s;
+}
+
+.container2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 10%;
+}
+
+/*.fundo2 img{
+    padding-bottom: 20%;
+    max-width: 630px;
+    height: auto;
+    width: 100%;
+    border-radius: 8px;
+}*/
+.sobre-mim h2 {
+  font-size: 60px;
+}
+
+.sobre-mim h2 span {
+  color: rgb(2, 186, 214);
+}
+
+.fundo2 img {
+  width: 60%;
+  border: solid 5px rgb(2, 186, 214);
+  border-radius: 40%;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.fundo2 a {
+  margin-top: 10px;
+}
+
+.sobre-mim h4 {
+  color: white;
+  font-size: 29px;
+  font-weight: 600;
+  line-height: 1.7;
+  margin: 15px 0 30px;
+}
+
+.sobre-mim p {
+  color: aliceblue;
+  font-size: 20px;
+  line-height: 1.4;
+  margin-bottom: 4rem;
+}
+
+#servicos {
+  color: aliceblue;
+  font-size: 20px;
+  line-height: 1.4;
+  margin-bottom: 4rem;
+}
+
+.subTitulo {
+  text-align: center;
+  font-size: 60px;
+  padding-bottom: 70px;
+}
+
+.subTitulo span {
+  color: rgb(2, 186, 214);
+}
+
+.fundo3 {
+  padding: 90px;
+}
+
+.lista_servicos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(259px, 1fr));
+  grid-gap: 40px;
+  margin-top: 50px;
+}
+
+.lista_servicos div {
+  background-color: transparent;
+  padding: 40px;
+  font-size: 13px;
+  border-right: 10px;
+  border-radius: 20px;
+  transition: background 0.5s, tranform 0.5s;
+  box-shadow: 1px 1px 20px rgb(0, 133, 153), 1px 1px 40px rgb(5, 185, 212);
+}
+
+.lista_servicos div i {
+  font-size: 50px;
+  margin-bottom: 30px;
+}
+
+.lista_servicos div h2 {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.lista_servicos div a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 12px;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.ver {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 40px;
+  font-size: 16px;
+  background-color: rgb(2, 186, 214);
+  color: #081b29;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0;
+  animation: slideTop 0.5s ease forwards;
+  animation-delay: 2s;
+  box-shadow: 0 0 5px rgb(2, 186, 214), 0 0 25px rgb(2, 186, 214);
+}
+
+.ver:hover {
+  box-shadow: 0 0 5px rgb(2, 186, 214), 0 0 25px rgb(2, 186, 214), 0 0 50px rgb(2, 186, 214), 0 0 100px rgb(2, 186, 214);
+  transition: 0.5s;
+}
+
+.lista_servicos div:hover {
+  transform: translateY(-10px);
+  transition: 0.5s;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container4 {
+  width: 600px;
+  height: 500px;
+  padding: 75px 90px;
+  margin-left: 70px;
+}
+
+.fundo4 {
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  text-decoration-thickness: 5px;
+  margin-bottom: 50px;
+}
+
+.bar {
+  font-size: 23px;
+}
+
+.tecnicas-bars .bar {
+  margin-top: 40px 0;
+}
+
+.tecnicas-bars .bar:first-child {
+  margin-top: 0;
+}
+
+.tecnicas-bars .bar:last-child {
+  margin-bottom: 0;
+}
+
+.tecnicas-bars .bar .informacoes {
+  margin-bottom: 5px;
+}
+
+.tecnicas-bars .bar .informacoes span {
+  font-size: 17px;
+  font-weight: 500;
+  animation: showText 0.5s 1s linear forwards;
+  opacity: 0;
+}
+
+.tecnicas-bars .bar .linha-progresso {
+  position: relative;
+  border-radius: 10px;
+  width: 100%;
+  height: 5px;
+  background-color: #000000;
+  animation: animate 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+@keyframes animate {
+  100% {
+    transform: scaleX(1);
+  }
+}
+.tecnicas-bars .bar .linha-progresso span {
+  height: 100%;
+  background-color: rgb(2, 186, 214);
+  position: absolute;
+  border-radius: 10px;
+  animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.linha-progresso.html span {
+  width: 70%;
+}
+
+.linha-progresso.css span {
+  width: 50%;
+}
+
+.linha-progresso.php span {
+  width: 30%;
+}
+
+.linha-progresso.java span {
+  width: 20%;
+}
+
+.linha-progresso.sql span {
+  width: 40%;
+}
+
+.linha-progresso.javascript span {
+  width: 10%;
+}
+
+.linha-progresso.python span {
+  width: 10%;
+}
+
+.linha-progresso span::after {
+  position: absolute;
+  padding: 1px 8px;
+  background-color: #000000;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 3px;
+  top: -28px;
+  right: -20px;
+  animation: showText 0.5s 1.5s linear forwards;
+  opacity: 0;
+}
+
+.linha-progresso.html span::after {
+  content: "70%";
+}
+
+.linha-progresso.css span::after {
+  content: "50%";
+}
+
+.linha-progresso.php span::after {
+  content: "30%";
+}
+
+.linha-progresso.java span::after {
+  content: "20%";
+}
+
+.linha-progresso.sql span::after {
+  content: "40%";
+}
+
+.linha-progresso.javascript span::after {
+  content: "10%";
+}
+
+.linha-progresso.python span::after {
+  content: "10%";
+}
+
+.linha-progresso span::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-color: #000000;
+  top: -10px;
+  right: 0;
+  animation: showText 0.5s 1.5s linear forwards;
+  opacity: 0;
+}
+
+.radial-bars {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.radial-bars .radial-bar {
+  width: 50%;
+  height: 170px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.radial-bars .radial-bar svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  width: 120px;
+  height: 160px;
+}
+
+.radial-bars .radial-bar .linha-progresso {
+  stroke-width: 10;
+  stop-color: #000000;
+  fill: transparent;
+  stroke-dasharray: 502;
+  stroke-dashoffset: 502;
+  stroke-linecap: round;
+  animation: animacao-bar 1s linear forwards;
+}
+
+@keyframes animacao-bar {
+  100% {
+    stroke-dashoffset: -1;
+  }
+}
+.path {
+  stroke-width: 10;
+  stroke: rgb(5, 185, 212);
+  fill: transparent;
+  stroke-dasharray: 502;
+  stroke-dashoffset: 502;
+  stroke-linecap: round;
+}
+
+.path-1 {
+  animation: animacao-path1 1s 1s linear forwards;
+}
+
+.path-2 {
+  animation: animacao-path2 1s 1s linear forwards;
+}
+
+.path-3 {
+  animation: animacao-path3 1s 1s linear forwards;
+}
+
+.path-4 {
+  animation: animacao-path4 1s 1s linear forwards;
+}
+
+@keyframes animacao-path1 {
+  100% {
+    stroke-dashoffset: 50;
+  }
+}
+@keyframes animacao-path2 {
+  100% {
+    stroke-dashoffset: 175;
+  }
+}
+@keyframes animacao-path3 {
+  100% {
+    stroke-dashoffset: 125;
+  }
+}
+@keyframes animacao-path4 {
+  100% {
+    stroke-dashoffset: 75;
+  }
+}
+.radial-bar .porcentagem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 17px;
+  font-weight: 500;
+  animation: showText 0.5s 1s linear forwards;
+  opacity: 0;
+}
+
+.radial-bar .texto {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  font-size: 17px;
+  font-weight: 500;
+  animation: showText 0.5s 1s linear forwards;
+  opacity: 0;
+}
+
+.main-texto {
+  padding-top: 180px;
+  margin-top: 200px;
+}
+
+.main-texto h2 {
+  font-size: 60px;
+  line-height: 1;
+  text-align: center;
+}
+
+.main-texto h2 span {
+  color: rgb(2, 186, 214);
+}
+
+.conteudo-portifolio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, auto));
+}
+
+.row {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.row img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+  transition: transform 0.5s;
+}
+
+.texto-projeto {
+  width: 100%;
+  height: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.1) rgb(2, 186, 214));
+  position: absolute;
+  border-radius: 8px;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 40px;
+  transition: height 0.5s;
+}
+
+.texto-projeto h5 {
+  color: black;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.texto-projeto i {
+  color: red;
+  margin-top: 20px;
+  font-size: 20px;
+  background-color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.row:hover img {
+  transform: scale(1.1);
+}
+
+.row:hover .texto-projeto {
+  height: 100%;
+}
+
+.contato {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: 3rem;
+  padding-left: 30px;
+  margin-top: 130px;
+}
+
+.texto-contato h2 {
+  font-size: 90px;
+  line-height: 1;
+  align-items: center;
+}
+
+.texto-contato h2 span {
+  color: rgb(5, 185, 212);
+}
+
+.texto-contato h4 {
+  margin: 15px 0;
+  color: rgb(228, 228, 228);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.texto-contato p {
+  color: rgb(177, 177, 177);
+  font-size: 20px;
+  line-height: 30px;
+  margin-bottom: 2rem;
+}
+
+.lista-contato {
+  margin-bottom: 3rem;
+}
+
+.lista-contato li {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.lista-contato i {
+  display: inline-block;
+  color: rgb(5, 185, 212);
+  font-size: 20px;
+  font-weight: 600;
+  transition: all 0.4s ease;
+}
+
+.lista-contato a:hover {
+  transform: scale(1.01) translateY(-5px);
+  color: rgb(2, 186, 214);
+}
+
+.icones-contato i {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 2px solid rgb(2, 186, 214);
+  border-radius: 50%;
+  color: rgb(2, 186, 214);
+  text-decoration: none;
+  margin: 30px 15px 30px 0;
+  transition: 0.5s ease;
+  opacity: 0;
+  animation: slideLeft 1s ease forwards;
+  animation-delay: calc(0.2s * var(--i));
+}
+
+.icones-contato i:hover {
+  background: rgb(2, 186, 214);
+  color: #000;
+  box-shadow: 0 0 20px rgb(2, 186, 214);
+}
+
+.formulario-contato form input, form textarea {
+  border: none;
+  outline: none;
+  width: 90%;
+  padding: 10px;
+  background: #555557;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.formulario-contato textarea {
+  resize: none;
+  height: 220px;
+}
+
+.formulario-contato form .enviar {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 40px;
+  font-size: 16px;
+  background-color: rgb(2, 186, 214);
+  color: #081b29;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0;
+  animation: slideTop 0.5s ease forwards;
+  animation-delay: 2s;
+  box-shadow: 0 0 5px rgb(2, 186, 214), 0 0 25px rgb(2, 186, 214);
+}
+
+.formulario-contato form .enviar:hover {
+  box-shadow: 0 0 5px rgb(2, 186, 214), 0 0 25px rgb(2, 186, 214), 0 0 50px rgb(2, 186, 214), 0 0 100px rgb(2, 186, 214);
+  transition: 0.5s;
+}
+
+@keyframes showText {
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+@keyframes slideTop {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes slideBottom {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.555);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(0, 133, 153);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(2, 186, 214);
+}/*# sourceMappingURL=style.css.map */
