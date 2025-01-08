@@ -39,7 +39,7 @@ header .logo {
 
 header nav a {
   border: solid 2px rgb(153, 227, 238);
-  display: inline-block;
+  display: inline-flex;
   font-weight: 500;
   margin-left: 35px;
   background-color: black;
@@ -71,6 +71,7 @@ header nav a:hover {
   background-image: url(/image/fundo.png);
   background-size: cover;
   background-repeat: no-repeat;
+  width: 100%;
   background-position: center;
   background-attachment: scroll;
   align-items: center;
@@ -922,13 +923,19 @@ section {
     padding: 8px 20px;
   }
   .sobre-mim h2 {
+    text-align: center;
     font-size: 40px;
   }
   .sobre-mim h4 {
+    text-align: center;
     font-size: 22px;
   }
   .sobre-mim p {
+    text-align: center;
     font-size: 16px;
+  }
+  .sobre-mim a {
+    justify-content: center;
   }
   .subTitulo {
     font-size: 40px;
@@ -1005,6 +1012,19 @@ section {
   }
 }
 @media (max-width: 400px) {
+  header {
+    display: inline;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+    width: 100%;
+  }
+  header nav a {
+    font-size: 5px;
+  }
+  header .logo {
+    font-size: 15px;
+  }
   .container4 {
     padding: 10px 20px;
     margin-left: 5px;
@@ -1031,5 +1051,8 @@ section {
   .texto-contato p,
   .texto-contato h4 {
     font-size: 14px;
+  }
+  .container1 {
+    width: 100%;
   }
 }/*# sourceMappingURL=style.css.map */
