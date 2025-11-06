@@ -1,22 +1,32 @@
+/* Reset e Estilos Globais */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
 }
+
 body{
     background-color: rgb(0, 32, 36);
-    height: 100vh;
-    width: auto;
+    /* MELHORIA: min-height permite que o body cresça se o conteúdo for maior que a tela */
+    min-height: 100vh; 
+    width: 100%; /* Garante que o body ocupe a largura total */
     color: aliceblue;
-
+    overflow-x: hidden; /* Previne scroll horizontal acidental */
 }
+
+/* Header */
 header{
     background-color: black;
     color: white;
     display: flex;
     justify-content: space-between;
+    /* MELHORIA: Usar vh para altura pode ser inconstante. 
+      Considere uma altura fixa (ex: 80px) ou min-height.
+      Mantive sua lógica, mas adicionei um min-height para segurança.
+    */
     height: 10%;
+    min-height: 70px; /* Garante que o header nunca fique muito pequeno */
     width: 100%;
     position: fixed;
     box-shadow: 0 0 0 1px rgb(153,227,238);
@@ -35,6 +45,7 @@ header .logo{
     opacity: 0;
     animation: slideRight 1s ease forwards;
 }
+
 header nav a{
     border: solid 2px rgb(153,227,238);
     display: inline-flex;
@@ -54,27 +65,32 @@ header nav a{
     animation: slideTop .5s ease forwards;
     animation-delay: calc(.2s * var(--i));
 }
+
 header nav a:hover{
     background-color: rgb(153,227,238);
     border-radius: 0 20px;
     margin: 10px;
     color: black;
 }
+
+/* Container 1 (Hero) */
 .container1{
     display: flex;
     height: 100vh;
     color: aliceblue;
     background-image: url(/image/fundo.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100%;
-  background-position: center;
-  background-attachment: scroll;
-  align-items: center;
-  justify-content: space-between;
-  padding: 70px 10% 0;
-  position: relative;
-  
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-position: center;
+    background-attachment: scroll;
+    align-items: center;
+    justify-content: space-between;
+    /* NOTA: Esse padding é para o conteúdo não ficar atrás do header.
+      Ele pode precisar de ajuste se a altura do header mudar.
+    */
+    padding: 70px 10% 0; 
+    position: relative;
 }
 
 .container1 .fundo .fundo-escuro{
@@ -99,6 +115,7 @@ header nav a:hover{
 }
 .fundo-escuro img{
     width: 40%;
+    min-width: 150px; /* Garante que a imagem não fique muito pequena */
     border: solid 5px rgb(153,227,238);
     border-radius: 50%;
     align-items: center;
@@ -150,36 +167,26 @@ header nav a:hover{
 .btn:hover{
     box-shadow: 0 0 5px rgb(153,227,238),
     0 0 25px rgb(153,227,238), 0 0 50px rgb(153,227,238), 0 0 100px rgb(153,227,238);
-
 }
 .texto{
     color: rgb(153,227,238);
-
 }
 .fundo-escuro h4:nth-last-of-type(2){
     margin-bottom: 30px;
     animation: slideTop 1s ease forwards;
     animation-delay: .7s;
 }
+
+/* Container 2 (Sobre mim) */
 .container2{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     gap: 1.5rem;
-    margin-top: 10%;
-}
-/*.fundo2 img{
-    padding-bottom: 20%;
-    max-width: 630px;
-    height: auto;
-    width: 100%;
-    border-radius: 8px;
-}*/
-.sobre-mim h2{
-    font-size: 60px;
-}
-.sobre-mim h2 span{
-    color: rgb(153,227,238);
+    /* MELHORIA: % de margin-top pode ser imprevisível. Use vh ou rem/px se possível. */
+    /* Mantido por enquanto, mas considere ajustar. */
+    margin-top: 10%; 
+    padding: 0 10%; /* Adicionado padding para consistência */
 }
 .fundo2 img{
     width: 60%;
@@ -190,6 +197,12 @@ header nav a:hover{
 }
 .fundo2 a{
     margin-top: 10px;
+}
+.sobre-mim h2{
+    font-size: 60px;
+}
+.sobre-mim h2 span{
+    color: rgb(153,227,238);
 }
 .sobre-mim h4{
     color: white;
@@ -204,11 +217,14 @@ header nav a:hover{
     line-height: 1.4;
     margin-bottom: 4rem;
 }
+
+/* Serviços */
 #servicos{
     color: aliceblue;
     font-size: 20px;
     line-height: 1.4;
     margin-bottom: 4rem;
+    width: 100%; /* Garante que a seção ocupe a largura total */
 }
 .subTitulo{
     text-align: center;
@@ -219,10 +235,13 @@ header nav a:hover{
     color: rgb(153,227,238);
 }
 .fundo3{
+    /* MELHORIA: padding: 90px é muito em telas pequenas. */
+    /* Será ajustado nas media queries */
     padding: 90px;
 }
 .lista_servicos{
     display: grid;
+    /* ÓTIMO! Isso já é muito responsivo. */
     grid-template-columns: repeat(auto-fit,minmax(259px,1fr));
     grid-gap: 40px;
     margin-top: 50px;
@@ -277,15 +296,19 @@ header nav a:hover{
     transform: translateY(-10px);
     transition: 0.5s;
 }
-section{
-    display: flex;
-    flex-wrap: wrap;
-}
+
+/* Skills */
+// section{
+//     display: flex;
+//     flex-wrap: wrap;
+// }
 .container4{
-    width: 600px;
-    height: 500px;
+    /* MELHORIA: Substituindo valores fixos por flexíveis */
+    width: 90%; /* Era 600px */
+    max-width: 600px; /* Limite máximo */
+    height: auto; /* Era 500px */
     padding: 75px 90px;
-    margin-left: 70px;   
+    margin: 20px auto; /* Era margin-left: 70px */
 }
 .fundo4{
     text-align: center;
@@ -297,11 +320,9 @@ section{
 .bar{
     font-size: 23px;
 }
-
 .tecnicas-bars .bar{
     margin-top: 40px 0;
 }
-
 .tecnicas-bars .bar:first-child{
     margin-top: 0;
 }
@@ -341,6 +362,7 @@ section{
     transform: scaleX(0);
     transform-origin: left;
 }
+/* ... (regras de .linha-progresso.html, etc. - sem alterações) ... */
 .linha-progresso.html span{
     width: 80%;
 }
@@ -395,20 +417,13 @@ section{
 .linha-progresso.python span::after{
     content: "20%";
 }
-.linha-progresso span::after{
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 0;
-    border: 7px solid transparent;
-    border-bottom-width: 0px;
-    border-right-width: 0px;
-    border-top-color: #000000;
-    top: -10px;
-    right: 0;
-    animation: showText 0.5s 1.5s linear forwards;
-    opacity: 0;
-}
+/* NOTA: Você tinha duas definições para .linha-progresso span::after. 
+   A primeira, com `content: ""`, estava sobrescrevendo a seta.
+   Removi a segunda definição (a da seta) para manter a porcentagem.
+   Se você queria AMBOS, você precisaria usar `::before` para um deles.
+*/
+
+/* Skills Radiais */
 .radial-bars{
     width: 100%;
     display: flex;
@@ -422,6 +437,7 @@ section{
     margin-bottom: 10px;
     position: relative;
 }
+/* ... (regras de .radial-bars, svg, path - sem alterações) ... */
 .radial-bars .radial-bar svg{
     position: absolute;
     top: 50%;
@@ -506,10 +522,23 @@ section{
     animation: showText 0.5s 1s linear forwards;
     opacity: 0;
 }
+
+/* Portifólio */
 .main-texto{
+    /* Define uma largura máxima */
+    max-width: 1200px; 
+
+    /* Combina o margin-top e centraliza (top, auto, bottom, auto) */
+    margin: 200px auto 0 auto; 
+
+    /* Mantém o padding-top original */
     padding-top: 180px;
-    margin-top: 200px;
-} 
+
+    /* Garante que o padding não quebre o layout */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 .main-texto h2{
     font-size: 60px;
     line-height: 1;
@@ -520,6 +549,7 @@ section{
 }
 .conteudo-portifolio{
     display: grid;
+    /* ÓTIMO! Isso também já é muito responsivo. */
     grid-template-columns: repeat(auto-fit, minmax(350px, auto));
 }
 .row{
@@ -575,13 +605,23 @@ section{
 .row:hover .texto-projeto{
     height: 100%;
 }
+
+/* Contato */
 .contato{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     gap: 3rem;
-    padding-left: 30px;
-    margin-top: 130px;
+    
+    /* Define uma largura máxima */
+    max-width: 1200px; 
+
+    /* Combina o margin-top e centraliza */
+    margin: 130px auto 0 auto; 
+
+    /* Adiciona um padding seguro */
+    padding: 0 20px; 
+    width: 100%;
 }
 .texto-contato h2{
     font-size: 90px;
@@ -643,6 +683,9 @@ section{
     color: #000;
     box-shadow: 0 0 20px rgb(153,227,238);
 }
+.formulario-contato form{
+    width: 100%; /* Garante que o formulário se adapte */
+}
 .formulario-contato form input, form textarea{
     border: none;
     outline: none;
@@ -680,9 +723,7 @@ section{
     transition: 0.5s;
 }
 
-
-
-
+/* ... (Animações - sem alterações) ... */
 @keyframes showText{
     100%{
         opacity: 1;
@@ -728,6 +769,8 @@ section{
         opacity: 1;
     }
 }
+
+/* Scrollbar */
 ::-webkit-scrollbar{
     width: 10px;
     height: 10px;
@@ -744,13 +787,17 @@ section{
 }
 
 
+/* === MEDIA QUERIES === */
+/* MELHORIA: Agrupando todas as regras por breakpoint */
 
+/* Telas Grandes (ex: Laptops) */
 @media (max-width: 1200px) {
     .container1 {
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
+        padding-top: 100px; /* Mais espaço para header */
     }
     .container1 .fundo-escuro {
         max-width: 100%;
@@ -761,11 +808,45 @@ section{
     }
     .fundo2 img {
         width: 100%;
-        margin-left: 0;
+        max-width: 400px; /* Limita o tamanho da imagem */
+        margin: 0 auto; /* Centraliza a imagem */
+        display: block;
+    }
+    .container4 {
+        width: 90%; /* Ajusta a largura */
+        padding: 60px 75px;
     }
 }
 
+/* Telas Médias (ex: Tablets) */
+@media (max-width: 992px) {
+    .container4 {
+        width: 90%;
+        padding: 45px 60px;
+        margin-left: auto; /* Centraliza */
+        margin-right: auto;
+    }
+    .fundo3{
+    /* Define uma largura máxima para o conteúdo */
+    max-width: 1200px; 
+    
+    /* Centraliza o container na página */
+    margin: 0 auto; 
+    
+    /* Padding original (ajustei o horizontal para telas menores) */
+    padding: 90px 20px; 
+}
+    .contato {
+        grid-template-columns: 1fr; /* Stack do formulário */
+        gap: 2rem;
+    }
+}
+
+/* Telas Médias para Pequenas */
 @media (max-width: 768px) {
+    header {
+        padding: 15px 5%; /* Menos padding */
+    }
     header nav a {
         font-size: 16px;
         padding: 8px;
@@ -785,7 +866,6 @@ section{
         padding: 10px 24px;
     }
     .sobre-mim h2 {
-
         font-size: 48px;
     }
     .sobre-mim h4 {
@@ -804,27 +884,54 @@ section{
         font-size: 14px;
         padding: 10px 18px;
     }
+    .container4 {
+        width: 95%;
+        padding: 30px 20px; /* Reduz padding interno */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .radial-bars .radial-bar {
+        width: 100%; /* Stacks dos radiais */
+        height: 150px;
+    }
+    .main-texto h2 {
+        font-size: 40px;
+    }
+    .texto-contato h2 {
+        font-size: 60px;
+    }
+    .texto-contato p,
+    .texto-contato h4 {
+        font-size: 18px;
+    }
+    .formulario-contato form input, 
+    .formulario-contato form textarea {
+        width: 100%; /* Inputs ocupam 100% */
+    }
 }
 
+/* Telas Pequenas (ex: Celulares) */
 @media (max-width: 480px) {
     header {
-        flex-direction: column;
-        height: auto;
+        flex-direction: column; /* Stacks do header */
+        height: auto; /* Altura automática */
         padding: 10px 5%;
     }
     header .logo {
         font-size: 20px;
+        margin-bottom: 10px; /* Espaço */
     }
     header nav {
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        flex-wrap: wrap; /* Permite que os links quebrem a linha */
+        justify-content: center;
+        width: 100%;
     }
     header nav a {
-        margin: 5px 0;
+        margin: 5px; /* Espaçamento igual */
     }
     .container1 {
-        padding: 60px 5% 0;
+        padding: 150px 5% 0; /* Mais padding-top por causa do header maior */
     }
     .fundo-escuro h1 {
         font-size: 32px;
@@ -838,7 +945,6 @@ section{
     .btn {
         font-size: 16px;
         padding: 8px 20px;
-        
     }
     .sobre-mim h2 {
         text-align: center;
@@ -852,7 +958,9 @@ section{
         text-align: center;
         font-size: 16px;
     }
-    .sobre-mim a{justify-content: center;}
+    .sobre-mim a {
+        justify-content: center;
+    }
     .subTitulo {
         font-size: 40px;
     }
@@ -863,130 +971,87 @@ section{
         font-size: 12px;
         padding: 8px 16px;
     }
-}
-@media (max-width: 1200px) {
     .container4 {
-        width: 500px;
-        padding: 60px 75px;
+        padding: 15px 10px; /* Menos padding */
+        margin-left: auto;
+        margin-right: auto;
     }
-}
-
-@media (max-width: 992px) {
-    .container4 {
-        width: 400px;
-        padding: 45px 60px;
-        margin-left: 50px;
-    }
-}
-
-@media (max-width: 768px) {
-    .container4 {
-        width: 100%;
-        padding: 30px 45px;
-        margin-left: 20px;
-    }
-
-    .radial-bars .radial-bar {
-        width: 100%;
-        height: 150px;
-    }
-
-    .main-texto h2 {
-        font-size: 40px;
-    }
-
-    .texto-contato h2 {
-        font-size: 60px;
-    }
-
-    .texto-contato p,
-    .texto-contato h4 {
-        font-size: 18px;
-    }
-}
-
-@media (max-width: 576px) {
-    .container4 {
-        padding: 15px 30px;
-        margin-left: 10px;
-    }
-
     .bar {
         font-size: 20px;
     }
-
     .tecnicas-bars .bar .informacoes span {
         font-size: 15px;
     }
-
     .radial-bars .radial-bar {
         height: 120px;
     }
-
     .radial-bar .porcentagem,
     .radial-bar .texto {
         font-size: 14px;
     }
-
     .main-texto h2 {
         font-size: 30px;
     }
-
     .texto-contato h2 {
         font-size: 40px;
+        text-align: center;
     }
-
     .texto-contato p,
     .texto-contato h4 {
         font-size: 16px;
+        text-align: center;
+    }
+    .lista-contato {
+        text-align: center;
+    }
+    .icones-contato {
+        text-align: center;
     }
 }
-
+/* Adicione isso para centralizar o conteúdo da seção Habilidades */
+#habilidades {
+    display: flex;
+    flex-direction: column; /* Empilha os itens verticalmente */
+    align-items: center;   /* Centraliza tudo horizontalmente */
+    width: 100%;
+    padding: 20px 0; /* Adiciona um respiro */
+}
+/* Telas Muito Pequenas */
 @media (max-width: 400px) {
-    header{
-        display: inline;
-        justify-content: space-between;
-        align-items: center;
-        height: 10%;
-        width: 100%;
-        
-    }
+    /* MELHORIA: Removidas as regras de header problemáticas. 
+      A fonte dos links da navagação foi aumentada de 5px (ilegível) para 12px.
+    */
     header nav a {
-        font-size: 5px;
+        font-size: 12px; /* Era 5px */
+        padding: 5px 8px;
     }
     header .logo{
-        font-size: 15px;
+        font-size: 18px; /* Reduzido um pouco */
     }
     .container4 {
-        padding: 10px 20px;
-        margin-left: 5px;
+        padding: 10px;
+        margin-left: auto;
+        margin-right: auto;
     }
-
     .bar {
         font-size: 18px;
     }
-
     .tecnicas-bars .bar .informacoes span {
         font-size: 14px;
     }
-
     .radial-bars .radial-bar {
         height: 100px;
     }
-
     .radial-bar .porcentagem,
     .radial-bar .texto {
         font-size: 12px;
     }
-
     .main-texto h2 {
         font-size: 25px;
     }
-
     .texto-contato h2 {
         font-size: 35px;
     }
-
     .texto-contato p,
     .texto-contato h4 {
         font-size: 14px;
