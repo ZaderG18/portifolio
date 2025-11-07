@@ -9,11 +9,10 @@
 
 body {
   background-color: rgb(0, 32, 36);
-  /* MELHORIA: min-height permite que o body cresça se o conteúdo for maior que a tela */
   min-height: 100vh;
-  width: 100%; /* Garante que o body ocupe a largura total */
+  width: 100%;
   color: aliceblue;
-  overflow-x: hidden; /* Previne scroll horizontal acidental */
+  overflow-x: hidden;
 }
 
 /* Header */
@@ -22,12 +21,8 @@ header {
   color: white;
   display: flex;
   justify-content: space-between;
-  /* MELHORIA: Usar vh para altura pode ser inconstante. 
-    Considere uma altura fixa (ex: 80px) ou min-height.
-    Mantive sua lógica, mas adicionei um min-height para segurança.
-  */
   height: 10%;
-  min-height: 70px; /* Garante que o header nunca fique muito pequeno */
+  min-height: 70px;
   width: 100%;
   position: fixed;
   box-shadow: 0 0 0 1px rgb(153, 227, 238);
@@ -87,9 +82,6 @@ header nav a:hover {
   background-attachment: scroll;
   align-items: center;
   justify-content: space-between;
-  /* NOTA: Esse padding é para o conteúdo não ficar atrás do header.
-    Ele pode precisar de ajuste se a altura do header mudar.
-  */
   padding: 70px 10% 0;
   position: relative;
 }
@@ -119,7 +111,7 @@ header nav a:hover {
 
 .fundo-escuro img {
   width: 40%;
-  min-width: 150px; /* Garante que a imagem não fique muito pequena */
+  min-width: 150px;
   border: solid 5px rgb(153, 227, 238);
   border-radius: 50%;
   align-items: center;
@@ -193,10 +185,8 @@ header nav a:hover {
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
   gap: 1.5rem;
-  /* MELHORIA: % de margin-top pode ser imprevisível. Use vh ou rem/px se possível. */
-  /* Mantido por enquanto, mas considere ajustar. */
   margin-top: 10%;
-  padding: 0 10%; /* Adicionado padding para consistência */
+  padding: 0 10%;
 }
 
 .fundo2 img {
@@ -234,13 +224,37 @@ header nav a:hover {
   margin-bottom: 4rem;
 }
 
+/* --- ESTILOS DO "MOSTRAR MAIS" (SOBRE MIM) --- */
+.sobre-mim-mais {
+  /* Esconde o conteúdo por padrão */
+  max-height: 0;
+  overflow: hidden;
+  /* Define a animação */
+  transition: max-height 0.7s ease-in-out;
+}
+
+.sobre-mim-mais.expandido {
+  /* Define uma altura máxima grande o suficiente para o conteúdo */
+  max-height: 1000px; /* (pode ajustar se precisar) */
+}
+
+/* Garante que os parágrafos dentro do container tenham margem */
+.sobre-mim-mais p {
+  margin-bottom: 1.5rem; /* Adiciona espaço entre os parágrafos */
+}
+
+/* Ajusta a margem do botão "Mostrar Mais" */
+#btn-sobre-mim {
+  margin-top: 1rem;
+}
+
 /* Serviços */
 #servicos {
   color: aliceblue;
   font-size: 20px;
   line-height: 1.4;
   margin-bottom: 4rem;
-  width: 100%; /* Garante que a seção ocupe a largura total */
+  width: 100%;
 }
 
 .subTitulo {
@@ -253,15 +267,15 @@ header nav a:hover {
   color: rgb(153, 227, 238);
 }
 
+/* CORREÇÃO: Centralização movida para fora da media query */
 .fundo3 {
-  /* MELHORIA: padding: 90px é muito em telas pequenas. */
-  /* Será ajustado nas media queries */
-  padding: 90px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 90px 20px;
 }
 
 .lista_servicos {
   display: grid;
-  /* ÓTIMO! Isso já é muito responsivo. */
   grid-template-columns: repeat(auto-fit, minmax(259px, 1fr));
   grid-gap: 40px;
   margin-top: 50px;
@@ -282,10 +296,19 @@ header nav a:hover {
   margin-bottom: 30px;
 }
 
-.lista_servicos div h2 {
-  font-size: 30px;
-  font-weight: 500;
+/* AJUSTE: Mudando de H2 para H3 */
+.lista_servicos div h3 {
+  font-size: 26px;
+  font-weight: 600;
   margin-bottom: 15px;
+  color: #fff;
+}
+
+/* AJUSTE: Melhorando legibilidade */
+.lista_servicos div p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #ccc;
 }
 
 .lista_servicos div a {
@@ -323,13 +346,21 @@ header nav a:hover {
 }
 
 /* Skills */
+/* ORGANIZAÇÃO: Regra movida para cá */
+#habilidades {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+}
+
 .container4 {
-  /* MELHORIA: Substituindo valores fixos por flexíveis */
-  width: 90%; /* Era 600px */
-  max-width: 600px; /* Limite máximo */
-  height: auto; /* Era 500px */
+  width: 90%;
+  max-width: 600px;
+  height: auto;
   padding: 75px 90px;
-  margin: 20px auto; /* Era margin-left: 70px */
+  margin: 20px auto;
 }
 
 .fundo4 {
@@ -393,36 +424,16 @@ header nav a:hover {
   transform-origin: left;
 }
 
-/* ... (regras de .linha-progresso.html, etc. - sem alterações) ... */
+/* --- ATUALIZAÇÕES DE HABILIDADES TÉCNICAS --- */
+/* CORREÇÃO: Este bloco de regra genérico estava duplicado. Removido. */
+/* .linha-progresso span::after{ ... } */
+/* HTML: 90% */
 .linha-progresso.html span {
-  width: 80%;
+  width: 90%;
 }
 
-.linha-progresso.css span {
-  width: 70%;
-}
-
-.linha-progresso.php span {
-  width: 50%;
-}
-
-.linha-progresso.java span {
-  width: 20%;
-}
-
-.linha-progresso.sql span {
-  width: 60%;
-}
-
-.linha-progresso.javascript span {
-  width: 20%;
-}
-
-.linha-progresso.python span {
-  width: 20%;
-}
-
-.linha-progresso span::after {
+.linha-progresso.html span::after {
+  content: "90%";
   position: absolute;
   padding: 1px 8px;
   background-color: #000000;
@@ -435,236 +446,403 @@ header nav a:hover {
   opacity: 0;
 }
 
-.linha-progresso.html span::after {
-  content: "80%";
+/* CSS: 85% */
+.linha-progresso.css span {
+  width: 85%;
 }
 
 .linha-progresso.css span::after {
-  content: "70%";
+  content: "85%";
+  position: absolute;
+  padding: 1px 8px;
+  background-color: #000000;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 3px;
+  top: -28px;
+  right: -20px;
+  animation: showText 0.5s 1.5s linear forwards;
+  opacity: 0;
 }
 
-.linha-progresso.php span::after {
-  content: "50%";
-}
-
-.linha-progresso.java span::after {
-  content: "20%";
-}
-
-.linha-progresso.sql span::after {
-  content: "60%";
+/* JavaScript: 75% */
+.linha-progresso.javascript span {
+  width: 75%;
 }
 
 .linha-progresso.javascript span::after {
-  content: "20%";
+  content: "75%";
+  position: absolute;
+  padding: 1px 8px;
+  background-color: #000000;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 3px;
+  top: -28px;
+  right: -20px;
+  animation: showText 0.5s 1.5s linear forwards;
+  opacity: 0;
+}
+
+/* React: 70% */
+.linha-progresso.react span {
+  width: 70%;
+}
+
+.linha-progresso.react span::after {
+  content: "70%";
+  position: absolute;
+  padding: 1px 8px;
+  background-color: #000000;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 3px;
+  top: -28px;
+  right: -20px;
+  animation: showText 0.5s 1.5s linear forwards;
+  opacity: 0;
+}
+
+/* PHP: 80% */
+.linha-progresso.php span {
+  width: 80%;
+}
+
+.linha-progresso.php span::after {
+  content: "80%";
+  position: absolute;
+  padding: 1px 8px;
+  background-color: #000000;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 3px;
+  top: -28px;
+  right: -20px;
+  animation: showText 0.5s 1.5s linear forwards;
+  opacity: 0;
+}
+
+/* SQL: 70% */
+.linha-progresso.sql span {
+  width: 70%;
+}
+
+.linha-progresso.sql span::after {
+  content: "70%";
+  position: absolute;
+  padding: 1px 8px;
+  background-color: #000000;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 3px;
+  top: -28px;
+  right: -20px;
+  animation: showText 0.5s 1.5s linear forwards;
+  opacity: 0;
+}
+
+/* Python: 60% */
+.linha-progresso.python span {
+  width: 60%;
 }
 
 .linha-progresso.python span::after {
-  content: "20%";
-}
-
-/* NOTA: Você tinha duas definições para .linha-progresso span::after. 
-   A primeira, com `content: ""`, estava sobrescrevendo a seta.
-   Removi a segunda definição (a da seta) para manter a porcentagem.
-   Se você queria AMBOS, você precisaria usar `::before` para um deles.
-*/
-/* Skills Radiais */
-.radial-bars {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: flex-start;
-}
-
-.radial-bars .radial-bar {
-  width: 50%;
-  height: 170px;
-  margin-bottom: 10px;
-  position: relative;
-}
-
-/* ... (regras de .radial-bars, svg, path - sem alterações) ... */
-.radial-bars .radial-bar svg {
+  content: "60%";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-90deg);
-  width: 120px;
-  height: 160px;
-}
-
-.radial-bars .radial-bar .linha-progresso {
-  stroke-width: 10;
-  stop-color: #000000;
-  fill: transparent;
-  stroke-dasharray: 502;
-  stroke-dashoffset: 502;
-  stroke-linecap: round;
-  animation: animacao-bar 1s linear forwards;
-}
-
-@keyframes animacao-bar {
-  100% {
-    stroke-dashoffset: -1;
-  }
-}
-.path {
-  stroke-width: 10;
-  stroke: rgb(5, 185, 212);
-  fill: transparent;
-  stroke-dasharray: 502;
-  stroke-dashoffset: 502;
-  stroke-linecap: round;
-}
-
-.path-1 {
-  animation: animacao-path1 1s 1s linear forwards;
-}
-
-.path-2 {
-  animation: animacao-path2 1s 1s linear forwards;
-}
-
-.path-3 {
-  animation: animacao-path3 1s 1s linear forwards;
-}
-
-.path-4 {
-  animation: animacao-path4 1s 1s linear forwards;
-}
-
-@keyframes animacao-path1 {
-  100% {
-    stroke-dashoffset: 50;
-  }
-}
-@keyframes animacao-path2 {
-  100% {
-    stroke-dashoffset: 175;
-  }
-}
-@keyframes animacao-path3 {
-  100% {
-    stroke-dashoffset: 125;
-  }
-}
-@keyframes animacao-path4 {
-  100% {
-    stroke-dashoffset: 75;
-  }
-}
-.radial-bar .porcentagem {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 17px;
-  font-weight: 500;
-  animation: showText 0.5s 1s linear forwards;
+  padding: 1px 8px;
+  background-color: #000000;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 3px;
+  top: -28px;
+  right: -20px;
+  animation: showText 0.5s 1.5s linear forwards;
   opacity: 0;
 }
 
-.radial-bar .texto {
-  width: 100%;
+/* Git: 70% */
+.linha-progresso.git span {
+  width: 70%;
+}
+
+.linha-progresso.git span::after {
+  content: "70%";
   position: absolute;
-  text-align: center;
-  left: 50%;
-  bottom: -5px;
-  transform: translateX(-50%);
-  font-size: 17px;
-  font-weight: 500;
-  animation: showText 0.5s 1s linear forwards;
+  padding: 1px 8px;
+  background-color: #000000;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 3px;
+  top: -28px;
+  right: -20px;
+  animation: showText 0.5s 1.5s linear forwards;
   opacity: 0;
 }
 
-/* Portifólio */
-.main-texto {
-  /* Define uma largura máxima */
-  max-width: 1200px;
-  /* Combina o margin-top e centraliza (top, auto, bottom, auto) */
-  margin: 200px auto 0 auto;
-  /* Mantém o padding-top original */
-  padding-top: 180px;
-  /* Garante que o padding não quebre o layout */
-  padding-left: 20px;
-  padding-right: 20px;
+/* Figma: 65% */
+.linha-progresso.figma span {
+  width: 65%;
 }
 
-.main-texto h2 {
-  font-size: 60px;
-  line-height: 1;
-  text-align: center;
+.linha-progresso.figma span::after {
+  content: "65%";
+  position: absolute;
+  padding: 1px 8px;
+  background-color: #000000;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 3px;
+  top: -28px;
+  right: -20px;
+  animation: showText 0.5s 1.5s linear forwards;
+  opacity: 0;
 }
 
-.main-texto h2 span {
-  color: rgb(153, 227, 238);
+/* Power BI: 55% */
+.linha-progresso.powerbi span {
+  width: 55%;
 }
 
-.conteudo-portifolio {
+.linha-progresso.powerbi span::after {
+  content: "55%";
+  position: absolute;
+  padding: 1px 8px;
+  background-color: #000000;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 3px;
+  top: -28px;
+  right: -20px;
+  animation: showText 0.5s 1.5s linear forwards;
+  opacity: 0;
+}
+
+/* Java: 0% (Oculto) */
+.linha-progresso.java span {
+  width: 0%;
+}
+
+.linha-progresso.java span::after {
+  content: "";
+  display: none; /* Garante que não apareça */
+}
+
+/* CORREÇÃO: Removido o bloco duplicado de '::after' que estava aqui */
+/* --- HABILIDADES COMPLEMENTARES (NOVO) --- */
+/* (Substitui as .radial-bars) */
+/* --- HABILIDADES COMPLEMENTARES (NOVO DESIGN DE CARD) --- */
+/* O container principal (agora mais largo) */
+.container-complementar {
+  width: 100%;
+  max-width: 1200px; /* Alinha com as seções de Serviços e Certificados */
+  margin: 20px auto;
+  padding: 40px 20px;
+  height: auto;
+}
+
+/* O título (reutiliza .fundo4, mas garantimos a cor) */
+.container-complementar h3.fundo4 {
+  color: aliceblue;
+  font-size: 28px;
+}
+
+/* O grid que segura os 3 cards */
+.complementar-grid {
   display: grid;
-  /* ÓTIMO! Isso também já é muito responsivo. */
-  grid-template-columns: repeat(auto-fit, minmax(350px, auto));
+  /* REUTILIZANDO a sua lógica de grid responsivo! */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 40px;
+  margin-top: 50px;
 }
 
-.row {
+/* O card de categoria individual */
+.skill-card {
+  background: transparent;
+  padding: 30px;
+  border-radius: 20px;
+  /* A MÁGICA: Reutilizando seu brilho neon principal! */
+  box-shadow: 1px 1px 20px rgb(0, 133, 153), 1px 1px 40px rgb(5, 185, 212);
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Título do card (com ícone) */
+.skill-card h3 {
+  font-size: 22px;
+  color: rgb(153, 227, 238); /* Cor de destaque */
+  font-weight: 600;
+  margin-bottom: 25px; /* Mais espaço para a lista */
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaço entre o ícone e o texto */
+}
+
+/* Ícone do título */
+.skill-card h3 i {
+  font-size: 26px;
+  vertical-align: middle;
+}
+
+/* Lista de habilidades dentro do card */
+.skill-card ul {
+  list-style: none; /* Remove as bolinhas padrão */
+  padding-left: 10px;
+}
+
+.skill-card ul li {
+  color: #ccc; /* Cor sutil para o texto */
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  padding-left: 15px;
   position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  cursor: pointer;
+  /* Um pequeno detalhe neon alinhado ao tema */
+  border-left: 2px solid rgb(0, 133, 153);
 }
 
-.row img {
-  width: 100%;
-  border-radius: 8px;
-  display: block;
-  transition: transform 0.5s;
-}
-
-.texto-projeto {
-  width: 100%;
-  height: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.1) rgb(153, 227, 238));
+.skill-card ul li::before {
+  content: "✓";
+  color: rgb(153, 227, 238);
   position: absolute;
-  border-radius: 8px;
   left: 0;
-  bottom: 0;
-  overflow: hidden;
+  top: 0;
+}
+
+/* ================================== */
+/* SEÇÃO DE PROJETOS (NOVO DESIGN)  */
+/* ================================== */
+/* Define o ID da seção para a navegação */
+#projeto {
+  width: 100%;
+  /* Ajusta o espaçamento para a nova seção */
+  padding: 100px 0;
+}
+
+/* O grid que segura os ícones */
+.projetos-grid {
+  display: grid;
+  /* Cria um grid responsivo de ícones.
+    Tamanho mínimo de 120px, máximo de 1fr (flexível).
+  */
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-gap: 50px; /* Espaço generoso entre os ícones */
+  /* Centraliza o grid */
+  max-width: 900px; /* Pode ajustar isso */
+  margin: 50px auto 0 auto;
+  padding: 0 20px;
+}
+
+/* O ícone de app individual (link) */
+.projeto-icone {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 40px;
-  transition: height 0.5s;
+  text-decoration: none;
+  color: #ccc; /* Cor sutil para o texto */
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.texto-projeto h5 {
-  color: black;
-  font-size: 20px;
+/* O fundo do ícone */
+.icone-bg {
+  width: 100px; /* Tamanho do ícone */
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 22%; /* Raio de borda estilo iOS */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px; /* Espaço entre ícone e texto */
+  /* Sombra interna sutil para dar profundidade */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+  /* Transição suave para o efeito de brilho */
+  transition: box-shadow 0.3s ease;
+}
+
+/* O ícone do Boxicons dentro do fundo */
+.projeto-icone .icone-bg i {
+  font-size: 55px;
+  color: rgb(153, 227, 238); /* Sua cor neon principal */
+  transition: color 0.3s ease;
+}
+
+/* O texto (nome do app) */
+.projeto-icone span {
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* --- EFEITO HOVER (A MÁGICA) --- */
+.projeto-icone:hover {
+  transform: translateY(-8px); /* Levanta o ícone */
+  color: #fff; /* Texto fica branco e nítido */
+}
+
+.projeto-icone:hover .icone-bg {
+  /* Reutiliza o seu brilho neon dos outros cards! */
+  box-shadow: 0 0 20px rgb(0, 133, 153), 0 0 40px rgb(5, 185, 212);
+}
+
+.projeto-icone:hover .icone-bg i {
+  color: #fff; /* Opcional: faz o ícone brilhar mais branco */
+}
+
+/* Certificados */
+#certificados {
+  width: 100%;
+  padding: 100px 0;
+}
+
+.lista-certificados {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 40px;
+  max-width: 1200px;
+  margin: 50px auto 0 auto;
+  padding: 0 20px;
+}
+
+.certificado-card {
+  background-color: transparent;
+  padding: 30px;
+  font-size: 14px;
+  border-radius: 20px;
+  box-shadow: 1px 1px 20px rgb(0, 133, 153), 1px 1px 40px rgb(5, 185, 212);
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.certificado-card:hover {
+  transform: translateY(-10px);
+}
+
+.certificado-card i {
+  font-size: 50px;
+  color: rgb(153, 227, 238);
+  margin-bottom: 20px;
+}
+
+.certificado-card h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.certificado-card .org {
+  display: block;
+  font-size: 16px;
+  color: rgb(153, 227, 238);
   font-weight: 500;
   margin-bottom: 15px;
 }
 
-.texto-projeto i {
-  color: red;
-  margin-top: 20px;
-  font-size: 20px;
-  background-color: #fff;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.row:hover img {
-  transform: scale(1.1);
-}
-
-.row:hover .texto-projeto {
-  height: 100%;
+.certificado-card .info {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.4;
 }
 
 /* Contato */
@@ -673,11 +851,8 @@ header nav a:hover {
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
   gap: 3rem;
-  /* Define uma largura máxima */
   max-width: 1200px;
-  /* Combina o margin-top e centraliza */
   margin: 130px auto 0 auto;
-  /* Adiciona um padding seguro */
   padding: 0 20px;
   width: 100%;
 }
@@ -753,7 +928,7 @@ header nav a:hover {
 }
 
 .formulario-contato form {
-  width: 100%; /* Garante que o formulário se adapte */
+  width: 100%;
 }
 
 .formulario-contato form input, form textarea {
@@ -795,7 +970,7 @@ header nav a:hover {
   transition: 0.5s;
 }
 
-/* ... (Animações - sem alterações) ... */
+/* Animações */
 @keyframes showText {
   100% {
     opacity: 1;
@@ -860,8 +1035,100 @@ header nav a:hover {
   background: rgb(153, 227, 238);
 }
 
+/* ================================== */
+/* SEÇÃO FORMAÇÃO ACADÊMICA (NOVA)  */
+/* ================================== */
+#formacao {
+  width: 100%;
+  padding: 100px 0;
+  /* Adiciona um fundo sutil para diferenciar a seção */
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.formacao-grid {
+  display: grid;
+  /* Grid responsivo para 1 ou 2 colunas */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 40px;
+  /* Centraliza o grid */
+  max-width: 900px;
+  margin: 50px auto 0 auto;
+  padding: 0 20px;
+}
+
+/* Card de Formação (usando seu tema neon) */
+.formacao-card {
+  background: transparent;
+  padding: 30px;
+  border-radius: 20px;
+  /* REUTILIZANDO seu tema de brilho! */
+  box-shadow: 1px 1px 20px rgb(0, 133, 153), 1px 1px 40px rgb(5, 185, 212);
+  /* Faz o card crescer na mesma altura (bom para o grid) */
+  display: flex;
+  flex-direction: column;
+}
+
+.formacao-card i {
+  font-size: 50px;
+  color: rgb(153, 227, 238);
+  margin-bottom: 20px;
+}
+
+.formacao-card h3 {
+  font-size: 24px;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.formacao-card .instituicao {
+  font-size: 16px;
+  color: rgb(153, 227, 238); /* Cor de destaque */
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+/* "Tag" de status (Cursando/Completo) */
+.formacao-card .status {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  /* Faz a tag ter o tamanho do texto */
+  align-self: flex-start;
+}
+
+.formacao-card .status.cursando {
+  color: #000;
+  background-color: rgb(153, 227, 238);
+}
+
+.formacao-card .status.completo {
+  color: #fff;
+  background-color: rgba(153, 227, 238, 0.3);
+  border: 1px solid rgb(153, 227, 238);
+}
+
+.formacao-card p {
+  color: #ccc;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* Estilo para a lista de focos */
+.formacao-card .focos {
+  font-size: 14px;
+  color: #fff;
+  /* Isso empurra a lista de focos para o final do card */
+  margin-top: auto;
+  padding-top: 15px;
+  /* Linha divisória sutil */
+  border-top: 1px solid rgba(153, 227, 238, 0.2);
+}
+
 /* === MEDIA QUERIES === */
-/* MELHORIA: Agrupando todas as regras por breakpoint */
 /* Telas Grandes (ex: Laptops) */
 @media (max-width: 1200px) {
   .container1 {
@@ -869,7 +1136,7 @@ header nav a:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding-top: 100px; /* Mais espaço para header */
+    padding-top: 100px;
   }
   .container1 .fundo-escuro {
     max-width: 100%;
@@ -880,12 +1147,12 @@ header nav a:hover {
   }
   .fundo2 img {
     width: 100%;
-    max-width: 400px; /* Limita o tamanho da imagem */
-    margin: 0 auto; /* Centraliza a imagem */
+    max-width: 400px;
+    margin: 0 auto;
     display: block;
   }
   .container4 {
-    width: 90%; /* Ajusta a largura */
+    width: 90%;
     padding: 60px 75px;
   }
 }
@@ -894,26 +1161,19 @@ header nav a:hover {
   .container4 {
     width: 90%;
     padding: 45px 60px;
-    margin-left: auto; /* Centraliza */
+    margin-left: auto;
     margin-right: auto;
   }
-  .fundo3 {
-    /* Define uma largura máxima para o conteúdo */
-    max-width: 1200px;
-    /* Centraliza o container na página */
-    margin: 0 auto;
-    /* Padding original (ajustei o horizontal para telas menores) */
-    padding: 90px 20px;
-  }
+  /* CORREÇÃO: Regra do .fundo3 removida daqui, pois já é global */
   .contato {
-    grid-template-columns: 1fr; /* Stack do formulário */
+    grid-template-columns: 1fr;
     gap: 2rem;
   }
 }
 /* Telas Médias para Pequenas */
 @media (max-width: 768px) {
   header {
-    padding: 15px 5%; /* Menos padding */
+    padding: 15px 5%;
   }
   header nav a {
     font-size: 16px;
@@ -945,7 +1205,7 @@ header nav a:hover {
   .subTitulo {
     font-size: 48px;
   }
-  .lista_servicos div h2 {
+  .lista_servicos div h3 { /* AJUSTE: h2 -> h3 */
     font-size: 24px;
   }
   .ver {
@@ -954,14 +1214,11 @@ header nav a:hover {
   }
   .container4 {
     width: 95%;
-    padding: 30px 20px; /* Reduz padding interno */
+    padding: 30px 20px;
     margin-left: auto;
     margin-right: auto;
   }
-  .radial-bars .radial-bar {
-    width: 100%; /* Stacks dos radiais */
-    height: 150px;
-  }
+  /* REMOÇÃO: Regras de .radial-bars removidas */
   .main-texto h2 {
     font-size: 40px;
   }
@@ -974,31 +1231,31 @@ header nav a:hover {
   }
   .formulario-contato form input,
   .formulario-contato form textarea {
-    width: 100%; /* Inputs ocupam 100% */
+    width: 100%;
   }
 }
 /* Telas Pequenas (ex: Celulares) */
 @media (max-width: 480px) {
   header {
-    flex-direction: column; /* Stacks do header */
-    height: auto; /* Altura automática */
+    flex-direction: column;
+    height: auto;
     padding: 10px 5%;
   }
   header .logo {
     font-size: 20px;
-    margin-bottom: 10px; /* Espaço */
+    margin-bottom: 10px;
   }
   header nav {
     display: flex;
-    flex-wrap: wrap; /* Permite que os links quebrem a linha */
+    flex-wrap: wrap;
     justify-content: center;
     width: 100%;
   }
   header nav a {
-    margin: 5px; /* Espaçamento igual */
+    margin: 5px;
   }
   .container1 {
-    padding: 150px 5% 0; /* Mais padding-top por causa do header maior */
+    padding: 150px 5% 0;
   }
   .fundo-escuro h1 {
     font-size: 32px;
@@ -1031,7 +1288,7 @@ header nav a:hover {
   .subTitulo {
     font-size: 40px;
   }
-  .lista_servicos div h2 {
+  .lista_servicos div h3 { /* AJUSTE: h2 -> h3 */
     font-size: 20px;
   }
   .ver {
@@ -1039,7 +1296,7 @@ header nav a:hover {
     padding: 8px 16px;
   }
   .container4 {
-    padding: 15px 10px; /* Menos padding */
+    padding: 15px 10px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -1049,13 +1306,7 @@ header nav a:hover {
   .tecnicas-bars .bar .informacoes span {
     font-size: 15px;
   }
-  .radial-bars .radial-bar {
-    height: 120px;
-  }
-  .radial-bar .porcentagem,
-  .radial-bar .texto {
-    font-size: 14px;
-  }
+  /* REMOÇÃO: Regras de .radial-bars removidas */
   .main-texto h2 {
     font-size: 30px;
   }
@@ -1075,26 +1326,14 @@ header nav a:hover {
     text-align: center;
   }
 }
-/* Adicione isso para centralizar o conteúdo da seção Habilidades */
-#habilidades {
-  display: flex;
-  flex-direction: column; /* Empilha os itens verticalmente */
-  align-items: center; /* Centraliza tudo horizontalmente */
-  width: 100%;
-  padding: 20px 0; /* Adiciona um respiro */
-}
-
 /* Telas Muito Pequenas */
 @media (max-width: 400px) {
-  /* MELHORIA: Removidas as regras de header problemáticas. 
-    A fonte dos links da navagação foi aumentada de 5px (ilegível) para 12px.
-  */
   header nav a {
-    font-size: 12px; /* Era 5px */
+    font-size: 12px;
     padding: 5px 8px;
   }
   header .logo {
-    font-size: 18px; /* Reduzido um pouco */
+    font-size: 18px;
   }
   .container4 {
     padding: 10px;
@@ -1107,13 +1346,7 @@ header nav a:hover {
   .tecnicas-bars .bar .informacoes span {
     font-size: 14px;
   }
-  .radial-bars .radial-bar {
-    height: 100px;
-  }
-  .radial-bar .porcentagem,
-  .radial-bar .texto {
-    font-size: 12px;
-  }
+  /* REMOÇÃO: Regras de .radial-bars removidas */
   .main-texto h2 {
     font-size: 25px;
   }
